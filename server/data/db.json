@@ -1,0 +1,290 @@
+{
+  "products": [
+    {
+      "id": "prod-1",
+      "name": "Teddy Mùa Thu Quàng Khăn Len",
+      "category": "Gấu Teddy",
+      "price": 395000,
+      "originalPrice": 450000,
+      "stock": 23,
+      "rating": 5,
+      "reviews": 142,
+      "tag": "Best Seller",
+      "tagColor": "bg-amber-500",
+      "image": "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80",
+      "description": "Bé Teddy lông xoắn vintage cao cấp, quàng chiếc khăn len dệt tay ấm áp. Ruột gòn 3D tinh khiết 100% không xẹp.",
+      "createdAt": "2026-09-15T08:00:00.000Z"
+    },
+    {
+      "id": "prod-2",
+      "name": "Giftbox Teddy Nâu Vintage (Kèm Thiệp)",
+      "category": "Combo Quà & Thiệp",
+      "price": 345000,
+      "originalPrice": 420000,
+      "stock": 15,
+      "rating": 4.9,
+      "reviews": 98,
+      "tag": "Hot Trend",
+      "tagColor": "bg-rose-500",
+      "image": "https://images.unsplash.com/photo-1556015048-4d3aa10df74c?auto=format&fit=crop&w=600&q=80",
+      "description": "Set quà gồm 1 bé gấu Teddy, hộp giấy Kraft vintage thắt nơ ruy băng lụa và thiệp viết tay nắn nót theo lời chúc.",
+      "createdAt": "2026-09-18T10:30:00.000Z"
+    },
+    {
+      "id": "prod-3",
+      "name": "Gấu Trúc Mũm Mĩm Nằm Ngủ",
+      "category": "Búp Bê & Khác",
+      "price": 280000,
+      "originalPrice": 320000,
+      "stock": 18,
+      "rating": 4.8,
+      "reviews": 64,
+      "tag": "Mới Về",
+      "tagColor": "bg-emerald-600",
+      "image": "https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&w=600&q=80",
+      "description": "Bé gấu trúc dáng nằm mũm mĩm siêu cưng, chất lông nhung mềm như bông gòn, thích hợp làm gối ôm.",
+      "createdAt": "2026-09-22T14:15:00.000Z"
+    },
+    {
+      "id": "prod-4",
+      "name": "Bé Cún Bông Bơ Sữa Tai Cụp",
+      "category": "Búp Bê & Khác",
+      "price": 245000,
+      "originalPrice": 280000,
+      "stock": 3,
+      "rating": 4.9,
+      "reviews": 53,
+      "tag": "Chỉ còn 3 bé",
+      "tagColor": "bg-red-500",
+      "image": "https://images.unsplash.com/photo-1535295972055-1c762f4483e5?auto=format&fit=crop&w=600&q=80",
+      "description": "Bé cún tai cụp màu bơ sữa ngọt ngào, ánh mắt tròn xoe ngây thơ, ôm ấp cả ngày không biết chán.",
+      "createdAt": "2026-09-25T09:00:00.000Z"
+    },
+    {
+      "id": "prod-5",
+      "name": "Gấu Chơi Nơ Ca-Rô Cổ Điển",
+      "category": "Gấu Teddy",
+      "price": 320000,
+      "originalPrice": 360000,
+      "stock": 30,
+      "rating": 5,
+      "reviews": 295,
+      "tag": "Best Seller",
+      "tagColor": "bg-amber-500",
+      "image": "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80",
+      "description": "Dòng gấu cổ điển được yêu thích nhất của tiệm, điểm nhấn chiếc nơ ca-rô ca-ri ấm cúng.",
+      "createdAt": "2026-09-10T11:00:00.000Z"
+    },
+    {
+      "id": "prod-6",
+      "name": "Gấu Bí Ngô Thêu Tay Mùa Vàng",
+      "category": "Gấu Teddy Mùa Thu",
+      "price": 295000,
+      "originalPrice": 350000,
+      "stock": 8,
+      "rating": 4.9,
+      "reviews": 184,
+      "tag": "Phiên bản giới hạn",
+      "tagColor": "bg-orange-500",
+      "image": "https://images.unsplash.com/photo-1558877385-81a1c7e67d72?auto=format&fit=crop&w=600&q=80",
+      "description": "Chi tiết quả bí ngô mini thêu chỉ nổi tinh tế trước ngực, mang đậm không khí thu ấm áp.",
+      "createdAt": "2026-09-28T16:20:00.000Z"
+    },
+    {
+      "id": "prod-7",
+      "name": "Gấu Cây Sồi Nâu Rêu Vintage",
+      "category": "Gấu Teddy Mùa Thu",
+      "price": 380000,
+      "originalPrice": 420000,
+      "stock": 12,
+      "rating": 4.9,
+      "reviews": 84,
+      "tag": "Độc Quyền",
+      "tagColor": "bg-stone-600",
+      "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
+      "description": "Tông màu nâu rêu độc đáo lấy cảm hứng từ những cánh rừng sồi mùa rụng lá.",
+      "createdAt": "2026-10-01T12:00:00.000Z"
+    },
+    {
+      "id": "prod-8",
+      "name": "Thỏ Bông Biscuit Váy Yếm Hồng",
+      "category": "Thỏ Bông Biscuit",
+      "price": 285000,
+      "originalPrice": 330000,
+      "stock": 22,
+      "rating": 5,
+      "reviews": 112,
+      "tag": "Best Seller",
+      "tagColor": "bg-pink-500",
+      "image": "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=600&q=80",
+      "description": "Bé thỏ Biscuit đôi tai dài rủ xuống, diện chiếc váy yếm đũi mộc mạc và đáng yêu.",
+      "createdAt": "2026-10-02T15:40:00.000Z"
+    },
+    {
+      "id": "prod-9",
+      "name": "Gấu Ôm Khổng Lồ 1m6 Nâu Caramel",
+      "category": "Gấu Ôm Khổng Lồ",
+      "price": 790000,
+      "originalPrice": 950000,
+      "stock": 6,
+      "rating": 5,
+      "reviews": 76,
+      "tag": "Cỡ Đại",
+      "tagColor": "bg-amber-700",
+      "image": "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80",
+      "description": "Bé gấu đại tướng 1m6 ôm siêu đầm tay, là món quà tỏ tình hoặc sinh nhật cực kỳ ấn tượng.",
+      "createdAt": "2026-10-03T10:10:00.000Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORD-1001",
+      "customerName": "Nguyễn Lan Hương",
+      "customerPhone": "0912345678",
+      "customerAddress": "Số 24 ngõ 180 Kim Mã, Ba Đình, Hà Nội",
+      "items": [
+        {
+          "productId": "prod-1",
+          "productName": "Teddy Mùa Thu Quàng Khăn Len",
+          "quantity": 1,
+          "price": 395000,
+          "image": "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "giftCardMessage": "Chúc mừng sinh nhật bé Mai iu dấu! Chúc em tuổi mới luôn an yên, mỉm cười ấm áp như bạn Teddy này nhé!",
+      "packagingOption": "Hộp quà Kraft vintage + Thiệp viết tay",
+      "shippingMethod": "Hỏa tốc 2H (Nội thành)",
+      "paymentMethod": "Chuyển khoản QR",
+      "totalAmount": 425000,
+      "shippingFee": 30000,
+      "status": "pending",
+      "note": "Giao trước 17h giúp mình nhé tiệm ơi!",
+      "createdAt": "2026-10-07T08:30:00.000Z"
+    },
+    {
+      "id": "ORD-1002",
+      "customerName": "Trần Tuấn Anh",
+      "customerPhone": "0987654321",
+      "customerAddress": "Chung cư Sunrise City, Q.7, TP. Hồ Chí Minh",
+      "items": [
+        {
+          "productId": "prod-2",
+          "productName": "Giftbox Teddy Nâu Vintage (Kèm Thiệp)",
+          "quantity": 1,
+          "price": 345000,
+          "image": "https://images.unsplash.com/photo-1556015048-4d3aa10df74c?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "giftCardMessage": "Kỷ niệm 500 ngày bên nhau, cảm ơn em vì luôn là ngọn lửa ấm sưởi ấm những ngày gió mùa.",
+      "packagingOption": "Hộp quà Kraft vintage + Thiệp viết tay",
+      "shippingMethod": "Giao tiêu chuẩn",
+      "paymentMethod": "COD (Thanh toán khi nhận)",
+      "totalAmount": 345000,
+      "shippingFee": 0,
+      "status": "processing",
+      "note": "Nhờ tiệm thắt ruy băng màu be thật xinh giùm mình",
+      "createdAt": "2026-10-06T15:20:00.000Z"
+    },
+    {
+      "id": "ORD-1003",
+      "customerName": "Lê Hoàng My",
+      "customerPhone": "0905112233",
+      "customerAddress": "45 Nguyễn Văn Linh, Q. Hải Châu, Đà Nẵng",
+      "items": [
+        {
+          "productId": "prod-6",
+          "productName": "Gấu Bí Ngô Thêu Tay Mùa Vàng",
+          "quantity": 1,
+          "price": 295000,
+          "image": "https://images.unsplash.com/photo-1558877385-81a1c7e67d72?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          "productId": "prod-8",
+          "productName": "Thỏ Bông Biscuit Váy Yếm Hồng",
+          "quantity": 1,
+          "price": 285000,
+          "image": "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "giftCardMessage": "Gửi hai thiên thần nhỏ của mẹ! Chúc hai con chăm ngoan học giỏi nhé.",
+      "packagingOption": "Hộp quà Kraft vintage + Thiệp viết tay",
+      "shippingMethod": "Giao tiêu chuẩn",
+      "paymentMethod": "Chuyển khoản QR",
+      "totalAmount": 580000,
+      "shippingFee": 0,
+      "status": "shipping",
+      "note": "Gọi trước khi giao hàng",
+      "createdAt": "2026-10-05T11:45:00.000Z"
+    },
+    {
+      "id": "ORD-1004",
+      "customerName": "Phạm Quỳnh Trang",
+      "customerPhone": "0934567890",
+      "customerAddress": "12 Lạch Tray, Ngô Quyền, Hải Phòng",
+      "items": [
+        {
+          "productId": "prod-9",
+          "productName": "Gấu Ôm Khổng Lồ 1m6 Nâu Caramel",
+          "quantity": 1,
+          "price": 790000,
+          "image": "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "giftCardMessage": "Tặng bé Trang ngủ ngoan, không còn sợ lạnh những đêm đông nữa nhé!",
+      "packagingOption": "Bọc túi quà bảo vệ kèm nơ lớn",
+      "shippingMethod": "Giao tiêu chuẩn",
+      "paymentMethod": "Chuyển khoản QR",
+      "totalAmount": 790000,
+      "shippingFee": 0,
+      "status": "delivered",
+      "note": "Hàng cồng kềnh bọc 2 lớp giúp mình",
+      "createdAt": "2026-10-04T09:10:00.000Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat-1",
+      "name": "Gấu Teddy",
+      "description": "Những bạn gấu Teddy cổ điển, truyền thống với nét đẹp mộc mạc."
+    },
+    {
+      "id": "cat-2",
+      "name": "Gấu Teddy Mùa Thu",
+      "description": "Phiên bản thiết kế giới hạn dành riêng cho mùa thu se lạnh."
+    },
+    {
+      "id": "cat-3",
+      "name": "Thỏ Bông Biscuit",
+      "description": "Các bạn thỏ Biscuit tai dài êm mềm, trang phục vintage."
+    },
+    {
+      "id": "cat-4",
+      "name": "Gấu Ôm Khổng Lồ",
+      "description": "Dòng gấu kích thước lớn từ 1m2 đến 1m8 ôm trọn vòng tay."
+    },
+    {
+      "id": "cat-5",
+      "name": "Búp Bê & Khác",
+      "description": "Gấu trúc, cún bông, mèo con và những nhân vật dễ thương."
+    },
+    {
+      "id": "cat-6",
+      "name": "Combo Quà & Thiệp",
+      "description": "Hộp quà Kraft kèm thiệp viết tay vintage nắn nót."
+    }
+  ],
+  "settings": {
+    "shopName": "Tiệm Gấu Bông HD",
+    "slogan": "Gói Trọn Yêu Thương, Gửi Hơi Ấm Mùa Thu",
+    "hotline": "0988.123.456",
+    "email": "tiemgaubong.hd@gmail.com",
+    "address": "Số 18 Đặng Văn Ngữ, Đống Đa, Hà Nội",
+    "freeShippingThreshold": 299000,
+    "topBanner": "✨ BST Mùa Thu 2024: Tặng miễn phí thiệp viết tay vintage & Hộp quà Kraft cho đơn từ 299k",
+    "bankInfo": {
+      "bankName": "Vietcombank",
+      "accountNumber": "9988776655",
+      "accountName": "TIEM GAU BONG HD"
+    }
+  }
+}

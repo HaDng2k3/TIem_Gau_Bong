@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cozy-bg: #FAF4EB;
+  --color-cozy-card: #FFFFFF;
+  --color-cozy-text: #6B4226;
+  --color-cozy-primary: #D47343;
+  --color-cozy-secondary: #E5A93C;
+  --color-cozy-border: #EAE0D5;
+
+  --font-sans: "Quicksand", sans-serif;
+  --font-handwriting: "Caveat", cursive;
+}
