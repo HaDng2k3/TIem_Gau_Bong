@@ -1,38 +1,77 @@
-# 🧸 Tiệm Gấu Bông HD - Hệ Thống Fullstack & Trang Quản Trị Backend
+# 🧸 Tiệm Gấu Bông HD - Hệ Thống Fullstack & Cơ Sở Dữ Liệu SQLite
 
-Hệ thống website thương mại điện tử chuyên bán gấu bông thủ công, quà tặng vintage và thiệp viết tay kèm **Trang Quản Trị (Admin Dashboard)** và **Server REST API Backend (Node.js & Express)**.
+Hệ thống website thương mại điện tử chuyên bán gấu bông thủ công, quà tặng vintage và thiệp viết tay kèm **Trang Quản Trị (Admin Dashboard)**, **Cơ sở dữ liệu SQLite** và **Server REST API Backend (Node.js & Express)**.
 
 ---
 
 ## 🌟 1. Cấu Trúc Hệ Thống
 
-Dự án gồm 2 phần được kết nối chặt chẽ và hoạt động mượt mà:
+Dự án gồm 3 thành phần liên kết chặt chẽ:
 1. **Frontend Client & Trang Quản Trị (React 19 + Tailwind CSS + Lucide Icons)**:
-   - Giao diện người mua hàng (Storefront: Trang chủ, BST Mùa Thu, Giỏ hàng, Đặt gấu kèm thiệp viết tay).
-   - **Trang Quản Trị Backend Portal (Admin Dashboard)**: Quản lý toàn diện cửa hàng (sản phẩm, đơn hàng, danh mục, lời chúc thiệp tay, cài đặt tiệm).
-   - Tự động fallback dữ liệu mượt mà qua LocalStorage nếu chạy ở chế độ offline.
-2. **Server Backend API (Node.js + Express + JSON DB)**:
+   - Giao diện người mua hàng (Trang chủ, BST Mùa Thu, Giỏ hàng, Đặt gấu kèm thiệp viết tay).
+   - **Trang Đăng Ký / Đăng Nhập thật sự**: Khách hàng tạo tài khoản mới, lưu trực tiếp vào cơ sở dữ liệu SQLite.
+   - **Trang Quản Trị Backend Portal (Admin Dashboard)**: Quản lý toàn diện cửa hàng (sản phẩm, đơn hàng, danh mục, người dùng, cài đặt tiệm).
+2. **Server Backend API (Node.js + Express + RESTful API)**:
    - Chạy tại port `5000`.
-   - Cung cấp đầy đủ REST API CRUD (Sản phẩm, Đơn hàng, Thống kê doanh thu, Cài đặt).
-   - Cơ sở dữ liệu nhẹ, bền vững tại `server/data/db.json`.
+   - Cung cấp đầy đủ REST API CRUD (Sản phẩm, Đơn hàng, Người dùng, Thống kê doanh thu, Xác thực).
+3. **Cơ Sở Dữ Liệu Quan Hệ (SQLite Database)**:
+   - File cơ sở dữ liệu: `server/data/tiem_gau_bong.sqlite`.
+   - Lưu trữ thật sự, hỗ trợ bảng quan hệ chuẩn: `users`, `products`, `orders`, `categories`, `vouchers`, `reviews`, `articles`, `settings`.
+   - Không cần cài server DB rườm rà (XAMPP hay MongoDB), giáo viên chấm bài tải về máy là chạy được ngay lập tức 100%!
 
 ---
 
-## 🚀 2. Hướng Dẫn Khởi Chạy
+## 🚀 2. Hướng Dẫn Khởi Chạy Nhanh
 
 Mở terminal tại thư mục `tiem-gau-bong`:
 
-### Bước 1: Khởi động Server Backend API (Terminal 1)
+### ⚡ Cách 1: Chạy 1 Lệnh Duy Nhất Cho Cả Frontend & Backend (Khuyên Dùng)
+```bash
+npm run dev:all
+```
+> Lệnh này sẽ tự động khởi chạy đồng thời cả Server Backend (Port 5000) và Web Frontend (Port 5173).
+
+---
+
+### 🛠️ Cách 2: Chạy Riêng 2 Terminal
+
+**Terminal 1 - Khởi động Backend & SQLite:**
 ```bash
 npm run server
 ```
-> Server sẽ chạy tại: `http://localhost:5000`
+*(Server chạy tại `http://localhost:5000`, nạp cơ sở dữ liệu `tiem_gau_bong.sqlite`)*
 
-### Bước 2: Khởi động Frontend Website (Terminal 2)
+**Terminal 2 - Khởi động Frontend Web:**
 ```bash
 npm run dev
 ```
-> Mở trình duyệt tại đường dẫn hiển thị (mặc định: `http://localhost:5173`)
+*(Mở trình duyệt tại `http://localhost:5173`)*
+
+---
+
+## 🔑 3. Tài Khoản Đăng Nhập Thử Nghiệm
+
+Hệ thống đã nạp sẵn các tài khoản thật trong SQLite:
+
+| Loại tài khoản | Tài khoản / Email | Mật khẩu | Quyền hạn |
+| :--- | :--- | :--- | :--- |
+| **Quản trị viên (Admin)** | `admin` hoặc `admin@tiembong.vn` | `admin` hoặc `admin123` | Quản trị toàn bộ hệ thống, đơn hàng, sản phẩm |
+| **Khách hàng thân thiết** | `0988123456` hoặc `tiembong@gmail.com` | `123456` | Mua hàng, xem lịch sử đơn, tích xu |
+| **Khách hàng mới** | *Tự bấm "Đăng ký ngay" trên web* | *Tự đặt (>= 6 ký tự)* | Lưu trực tiếp vào bảng `users` của SQLite |
+
+---
+
+## 📊 4. Cấu Trúc Bảng Cơ Sở Dữ Liệu SQLite (Dùng cho Báo cáo Đồ án)
+
+Các bảng được định nghĩa trong file `server/database.js`:
+- `users`: Tài khoản, thông tin cá nhân, phân quyền (customer / admin), hạng thành viên, xu tích lũy.
+- `products`: Mã sản phẩm, tên gấu, danh mục, giá bán, giá gốc, tồn kho, đánh giá, mô tả.
+- `orders`: Mã đơn hàng, thông tin khách, địa chỉ giao hàng, danh sách gấu bông, thiệp viết tay, tổng tiền, trạng thái đơn.
+- `categories`: Danh mục sản phẩm (Gấu Teddy, Combo quà, Búp bê,...).
+- `vouchers`: Mã giảm giá, điều kiện áp dụng, hạn sử dụng.
+- `reviews`: Nhận xét và đánh giá sao của khách hàng.
+- `articles`: Tin tức, câu chuyện về quà tặng vintage.
+- `settings`: Cấu hình thông tin tiệm gấu bông.
 
 ---
 

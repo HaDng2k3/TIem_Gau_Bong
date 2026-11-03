@@ -1,109 +1,20 @@
 {
   "products": [
     {
-      "id": "prod-1",
-      "name": "Teddy Mùa Thu Quàng Khăn Len",
-      "category": "Gấu Teddy",
-      "price": 395000,
-      "originalPrice": 450000,
-      "stock": 23,
+      "id": "prod-9",
+      "name": "Gấu Ôm Khổng Lồ 1m6 Nâu Caramel",
+      "category": "Gấu Ôm Khổng Lồ",
+      "price": 790000,
+      "originalPrice": 950000,
+      "stock": 6,
       "rating": 5,
-      "reviews": 142,
-      "tag": "Best Seller",
-      "tagColor": "bg-amber-500",
+      "reviews": 76,
+      "tag": "Cỡ Đại",
+      "tagColor": "bg-amber-700",
       "image": "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80",
-      "description": "Bé Teddy lông xoắn vintage cao cấp, quàng chiếc khăn len dệt tay ấm áp. Ruột gòn 3D tinh khiết 100% không xẹp.",
-      "createdAt": "2026-09-15T08:00:00.000Z"
-    },
-    {
-      "id": "prod-2",
-      "name": "Giftbox Teddy Nâu Vintage (Kèm Thiệp)",
-      "category": "Combo Quà & Thiệp",
-      "price": 345000,
-      "originalPrice": 420000,
-      "stock": 15,
-      "rating": 4.9,
-      "reviews": 98,
-      "tag": "Hot Trend",
-      "tagColor": "bg-rose-500",
-      "image": "https://images.unsplash.com/photo-1556015048-4d3aa10df74c?auto=format&fit=crop&w=600&q=80",
-      "description": "Set quà gồm 1 bé gấu Teddy, hộp giấy Kraft vintage thắt nơ ruy băng lụa và thiệp viết tay nắn nót theo lời chúc.",
-      "createdAt": "2026-09-18T10:30:00.000Z"
-    },
-    {
-      "id": "prod-3",
-      "name": "Gấu Trúc Mũm Mĩm Nằm Ngủ",
-      "category": "Búp Bê & Khác",
-      "price": 280000,
-      "originalPrice": 320000,
-      "stock": 18,
-      "rating": 4.8,
-      "reviews": 64,
-      "tag": "Mới Về",
-      "tagColor": "bg-emerald-600",
-      "image": "https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&w=600&q=80",
-      "description": "Bé gấu trúc dáng nằm mũm mĩm siêu cưng, chất lông nhung mềm như bông gòn, thích hợp làm gối ôm.",
-      "createdAt": "2026-09-22T14:15:00.000Z"
-    },
-    {
-      "id": "prod-4",
-      "name": "Bé Cún Bông Bơ Sữa Tai Cụp",
-      "category": "Búp Bê & Khác",
-      "price": 245000,
-      "originalPrice": 280000,
-      "stock": 3,
-      "rating": 4.9,
-      "reviews": 53,
-      "tag": "Chỉ còn 3 bé",
-      "tagColor": "bg-red-500",
-      "image": "https://images.unsplash.com/photo-1535295972055-1c762f4483e5?auto=format&fit=crop&w=600&q=80",
-      "description": "Bé cún tai cụp màu bơ sữa ngọt ngào, ánh mắt tròn xoe ngây thơ, ôm ấp cả ngày không biết chán.",
-      "createdAt": "2026-09-25T09:00:00.000Z"
-    },
-    {
-      "id": "prod-5",
-      "name": "Gấu Chơi Nơ Ca-Rô Cổ Điển",
-      "category": "Gấu Teddy",
-      "price": 320000,
-      "originalPrice": 360000,
-      "stock": 30,
-      "rating": 5,
-      "reviews": 295,
-      "tag": "Best Seller",
-      "tagColor": "bg-amber-500",
-      "image": "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80",
-      "description": "Dòng gấu cổ điển được yêu thích nhất của tiệm, điểm nhấn chiếc nơ ca-rô ca-ri ấm cúng.",
-      "createdAt": "2026-09-10T11:00:00.000Z"
-    },
-    {
-      "id": "prod-6",
-      "name": "Gấu Bí Ngô Thêu Tay Mùa Vàng",
-      "category": "Gấu Teddy Mùa Thu",
-      "price": 295000,
-      "originalPrice": 350000,
-      "stock": 8,
-      "rating": 4.9,
-      "reviews": 184,
-      "tag": "Phiên bản giới hạn",
-      "tagColor": "bg-orange-500",
-      "image": "https://images.unsplash.com/photo-1558877385-81a1c7e67d72?auto=format&fit=crop&w=600&q=80",
-      "description": "Chi tiết quả bí ngô mini thêu chỉ nổi tinh tế trước ngực, mang đậm không khí thu ấm áp.",
-      "createdAt": "2026-09-28T16:20:00.000Z"
-    },
-    {
-      "id": "prod-7",
-      "name": "Gấu Cây Sồi Nâu Rêu Vintage",
-      "category": "Gấu Teddy Mùa Thu",
-      "price": 380000,
-      "originalPrice": 420000,
-      "stock": 12,
-      "rating": 4.9,
-      "reviews": 84,
-      "tag": "Độc Quyền",
-      "tagColor": "bg-stone-600",
-      "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
-      "description": "Tông màu nâu rêu độc đáo lấy cảm hứng từ những cánh rừng sồi mùa rụng lá.",
-      "createdAt": "2026-10-01T12:00:00.000Z"
+      "description": "Bé gấu đại tướng 1m6 ôm siêu đầm tay, là món quà tỏ tình hoặc sinh nhật cực kỳ ấn tượng.",
+      "createdAt": "2026-10-03T10:10:00.000Z",
+      "updatedAt": ""
     },
     {
       "id": "prod-8",
@@ -118,30 +29,130 @@
       "tagColor": "bg-pink-500",
       "image": "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=600&q=80",
       "description": "Bé thỏ Biscuit đôi tai dài rủ xuống, diện chiếc váy yếm đũi mộc mạc và đáng yêu.",
-      "createdAt": "2026-10-02T15:40:00.000Z"
+      "createdAt": "2026-10-02T15:40:00.000Z",
+      "updatedAt": ""
     },
     {
-      "id": "prod-9",
-      "name": "Gấu Ôm Khổng Lồ 1m6 Nâu Caramel",
-      "category": "Gấu Ôm Khổng Lồ",
-      "price": 790000,
-      "originalPrice": 950000,
-      "stock": 6,
+      "id": "prod-7",
+      "name": "Gấu Cây Sồi Nâu Rêu Vintage",
+      "category": "Gấu Teddy Mùa Thu",
+      "price": 380000,
+      "originalPrice": 420000,
+      "stock": 12,
+      "rating": 4.9,
+      "reviews": 84,
+      "tag": "Độc Quyền",
+      "tagColor": "bg-stone-600",
+      "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
+      "description": "Tông màu nâu rêu độc đáo lấy cảm hứng từ những cánh rừng sồi mùa rụng lá.",
+      "createdAt": "2026-10-01T12:00:00.000Z",
+      "updatedAt": ""
+    },
+    {
+      "id": "prod-6",
+      "name": "Gấu Bí Ngô Thêu Tay Mùa Vàng",
+      "category": "Gấu Teddy Mùa Thu",
+      "price": 295000,
+      "originalPrice": 350000,
+      "stock": 8,
+      "rating": 4.9,
+      "reviews": 184,
+      "tag": "Phiên bản giới hạn",
+      "tagColor": "bg-orange-500",
+      "image": "https://images.unsplash.com/photo-1558877385-81a1c7e67d72?auto=format&fit=crop&w=600&q=80",
+      "description": "Chi tiết quả bí ngô mini thêu chỉ nổi tinh tế trước ngực, mang đậm không khí thu ấm áp.",
+      "createdAt": "2026-09-28T16:20:00.000Z",
+      "updatedAt": ""
+    },
+    {
+      "id": "prod-4",
+      "name": "Bé Cún Bông Bơ Sữa Tai Cụp",
+      "category": "Búp Bê & Khác",
+      "price": 245000,
+      "originalPrice": 280000,
+      "stock": 3,
+      "rating": 4.9,
+      "reviews": 53,
+      "tag": "Chỉ còn 3 bé",
+      "tagColor": "bg-red-500",
+      "image": "https://images.unsplash.com/photo-1535295972055-1c762f4483e5?auto=format&fit=crop&w=600&q=80",
+      "description": "Bé cún tai cụp màu bơ sữa ngọt ngào, ánh mắt tròn xoe ngây thơ, ôm ấp cả ngày không biết chán.",
+      "createdAt": "2026-09-25T09:00:00.000Z",
+      "updatedAt": ""
+    },
+    {
+      "id": "prod-3",
+      "name": "Gấu Trúc Mũm Mĩm Nằm Ngủ",
+      "category": "Búp Bê & Khác",
+      "price": 280000,
+      "originalPrice": 320000,
+      "stock": 18,
+      "rating": 4.8,
+      "reviews": 64,
+      "tag": "Mới Về",
+      "tagColor": "bg-emerald-600",
+      "image": "https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&w=600&q=80",
+      "description": "Bé gấu trúc dáng nằm mũm mĩm siêu cưng, chất lông nhung mềm như bông gòn, thích hợp làm gối ôm.",
+      "createdAt": "2026-09-22T14:15:00.000Z",
+      "updatedAt": ""
+    },
+    {
+      "id": "prod-2",
+      "name": "Giftbox Teddy Nâu Vintage (Kèm Thiệp)",
+      "category": "Combo Quà & Thiệp",
+      "price": 345000,
+      "originalPrice": 420000,
+      "stock": 15,
+      "rating": 4.9,
+      "reviews": 98,
+      "tag": "Hot Trend",
+      "tagColor": "bg-rose-500",
+      "image": "https://images.unsplash.com/photo-1556015048-4d3aa10df74c?auto=format&fit=crop&w=600&q=80",
+      "description": "Set quà gồm 1 bé gấu Teddy, hộp giấy Kraft vintage thắt nơ ruy băng lụa và thiệp viết tay nắn nót theo lời chúc.",
+      "createdAt": "2026-09-18T10:30:00.000Z",
+      "updatedAt": ""
+    },
+    {
+      "id": "prod-1",
+      "name": "Teddy Mùa Thu Quàng Khăn Len",
+      "category": "Gấu Teddy",
+      "price": 395000,
+      "originalPrice": 450000,
+      "stock": 23,
       "rating": 5,
-      "reviews": 76,
-      "tag": "Cỡ Đại",
-      "tagColor": "bg-amber-700",
+      "reviews": 142,
+      "tag": "Best Seller",
+      "tagColor": "bg-amber-500",
+      "image": "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=600&q=80",
+      "description": "Bé Teddy lông xoắn vintage cao cấp, quàng chiếc khăn len dệt tay ấm áp. Ruột gòn 3D tinh khiết 100% không xẹp.",
+      "createdAt": "2026-09-15T08:00:00.000Z",
+      "updatedAt": "2026-11-03T10:33:39.650Z"
+    },
+    {
+      "id": "prod-5",
+      "name": "Gấu Chơi Nơ Ca-Rô Cổ Điển",
+      "category": "Gấu Teddy",
+      "price": 130000,
+      "originalPrice": 360000,
+      "stock": 30,
+      "rating": 5,
+      "reviews": 295,
+      "tag": "Hot Trend",
+      "tagColor": "bg-amber-500",
       "image": "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80",
-      "description": "Bé gấu đại tướng 1m6 ôm siêu đầm tay, là món quà tỏ tình hoặc sinh nhật cực kỳ ấn tượng.",
-      "createdAt": "2026-10-03T10:10:00.000Z"
+      "description": "Dòng gấu cổ điển được yêu thích nhất của tiệm, điểm nhấn chiếc nơ ca-rô ca-ri ấm cúng.",
+      "createdAt": "2026-09-10T11:00:00.000Z",
+      "updatedAt": "2026-11-03T10:36:09.765Z"
     }
   ],
   "orders": [
     {
       "id": "ORD-1001",
+      "orderCode": "ORD-1001",
+      "userId": "",
       "customerName": "Nguyễn Lan Hương",
       "customerPhone": "0912345678",
-      "customerAddress": "Số 24 ngõ 180 Kim Mã, Ba Đình, Hà Nội",
+      "shippingAddress": "",
       "items": [
         {
           "productId": "prod-1",
@@ -151,21 +162,23 @@
           "image": "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80"
         }
       ],
-      "giftCardMessage": "Chúc mừng sinh nhật bé Mai iu dấu! Chúc em tuổi mới luôn an yên, mỉm cười ấm áp như bạn Teddy này nhé!",
-      "packagingOption": "Hộp quà Kraft vintage + Thiệp viết tay",
-      "shippingMethod": "Hỏa tốc 2H (Nội thành)",
-      "paymentMethod": "Chuyển khoản QR",
-      "totalAmount": 425000,
+      "subtotal": 0,
       "shippingFee": 30000,
+      "discount": 0,
+      "totalAmount": 425000,
       "status": "pending",
-      "note": "Giao trước 17h giúp mình nhé tiệm ơi!",
+      "paymentMethod": "Chuyển khoản QR",
+      "notes": "",
+      "handwrittenCard": null,
       "createdAt": "2026-10-07T08:30:00.000Z"
     },
     {
       "id": "ORD-1002",
+      "orderCode": "ORD-1002",
+      "userId": "",
       "customerName": "Trần Tuấn Anh",
       "customerPhone": "0987654321",
-      "customerAddress": "Chung cư Sunrise City, Q.7, TP. Hồ Chí Minh",
+      "shippingAddress": "",
       "items": [
         {
           "productId": "prod-2",
@@ -175,21 +188,23 @@
           "image": "https://images.unsplash.com/photo-1556015048-4d3aa10df74c?auto=format&fit=crop&w=600&q=80"
         }
       ],
-      "giftCardMessage": "Kỷ niệm 500 ngày bên nhau, cảm ơn em vì luôn là ngọn lửa ấm sưởi ấm những ngày gió mùa.",
-      "packagingOption": "Hộp quà Kraft vintage + Thiệp viết tay",
-      "shippingMethod": "Giao tiêu chuẩn",
-      "paymentMethod": "COD (Thanh toán khi nhận)",
-      "totalAmount": 345000,
+      "subtotal": 0,
       "shippingFee": 0,
+      "discount": 0,
+      "totalAmount": 345000,
       "status": "processing",
-      "note": "Nhờ tiệm thắt ruy băng màu be thật xinh giùm mình",
+      "paymentMethod": "COD (Thanh toán khi nhận)",
+      "notes": "",
+      "handwrittenCard": null,
       "createdAt": "2026-10-06T15:20:00.000Z"
     },
     {
       "id": "ORD-1003",
+      "orderCode": "ORD-1003",
+      "userId": "",
       "customerName": "Lê Hoàng My",
       "customerPhone": "0905112233",
-      "customerAddress": "45 Nguyễn Văn Linh, Q. Hải Châu, Đà Nẵng",
+      "shippingAddress": "",
       "items": [
         {
           "productId": "prod-6",
@@ -206,21 +221,23 @@
           "image": "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=600&q=80"
         }
       ],
-      "giftCardMessage": "Gửi hai thiên thần nhỏ của mẹ! Chúc hai con chăm ngoan học giỏi nhé.",
-      "packagingOption": "Hộp quà Kraft vintage + Thiệp viết tay",
-      "shippingMethod": "Giao tiêu chuẩn",
-      "paymentMethod": "Chuyển khoản QR",
-      "totalAmount": 580000,
+      "subtotal": 0,
       "shippingFee": 0,
+      "discount": 0,
+      "totalAmount": 580000,
       "status": "shipping",
-      "note": "Gọi trước khi giao hàng",
+      "paymentMethod": "Chuyển khoản QR",
+      "notes": "",
+      "handwrittenCard": null,
       "createdAt": "2026-10-05T11:45:00.000Z"
     },
     {
       "id": "ORD-1004",
+      "orderCode": "ORD-1004",
+      "userId": "",
       "customerName": "Phạm Quỳnh Trang",
       "customerPhone": "0934567890",
-      "customerAddress": "12 Lạch Tray, Ngô Quyền, Hải Phòng",
+      "shippingAddress": "",
       "items": [
         {
           "productId": "prod-9",
@@ -230,14 +247,14 @@
           "image": "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80"
         }
       ],
-      "giftCardMessage": "Tặng bé Trang ngủ ngoan, không còn sợ lạnh những đêm đông nữa nhé!",
-      "packagingOption": "Bọc túi quà bảo vệ kèm nơ lớn",
-      "shippingMethod": "Giao tiêu chuẩn",
-      "paymentMethod": "Chuyển khoản QR",
-      "totalAmount": 790000,
+      "subtotal": 0,
       "shippingFee": 0,
+      "discount": 0,
+      "totalAmount": 790000,
       "status": "delivered",
-      "note": "Hàng cồng kềnh bọc 2 lớp giúp mình",
+      "paymentMethod": "Chuyển khoản QR",
+      "notes": "",
+      "handwrittenCard": null,
       "createdAt": "2026-10-04T09:10:00.000Z"
     }
   ],
@@ -245,32 +262,44 @@
     {
       "id": "cat-1",
       "name": "Gấu Teddy",
-      "description": "Những bạn gấu Teddy cổ điển, truyền thống với nét đẹp mộc mạc."
+      "slug": "",
+      "icon": "",
+      "count": 0
     },
     {
       "id": "cat-2",
       "name": "Gấu Teddy Mùa Thu",
-      "description": "Phiên bản thiết kế giới hạn dành riêng cho mùa thu se lạnh."
+      "slug": "",
+      "icon": "",
+      "count": 0
     },
     {
       "id": "cat-3",
       "name": "Thỏ Bông Biscuit",
-      "description": "Các bạn thỏ Biscuit tai dài êm mềm, trang phục vintage."
+      "slug": "",
+      "icon": "",
+      "count": 0
     },
     {
       "id": "cat-4",
       "name": "Gấu Ôm Khổng Lồ",
-      "description": "Dòng gấu kích thước lớn từ 1m2 đến 1m8 ôm trọn vòng tay."
+      "slug": "",
+      "icon": "",
+      "count": 0
     },
     {
       "id": "cat-5",
       "name": "Búp Bê & Khác",
-      "description": "Gấu trúc, cún bông, mèo con và những nhân vật dễ thương."
+      "slug": "",
+      "icon": "",
+      "count": 0
     },
     {
       "id": "cat-6",
       "name": "Combo Quà & Thiệp",
-      "description": "Hộp quà Kraft kèm thiệp viết tay vintage nắn nót."
+      "slug": "",
+      "icon": "",
+      "count": 0
     }
   ],
   "settings": {
@@ -285,6 +314,272 @@
       "bankName": "Vietcombank",
       "accountNumber": "9988776655",
       "accountName": "TIEM GAU BONG HD"
+    },
+    "heroBanner": "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=1200&q=80",
+    "logo": "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=300&q=80",
+    "authBanner": ""
+  },
+  "users": [
+    {
+      "id": "user-1793703236519",
+      "name": "Nguy?n Van Test",
+      "account": "testuser@gmail.com",
+      "email": "testuser@gmail.com",
+      "phone": "",
+      "password": "password123",
+      "role": "customer",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+      "memberTier": "Thành viên Mùa Thu 🍂",
+      "loyaltyCoins": 0,
+      "totalSpent": 0,
+      "ordersCount": 0,
+      "clawGameTurns": 3,
+      "vouchers": [
+        {
+          "code": "CHAOBANMOI30K",
+          "discount": 30000,
+          "description": "Voucher chào bạn mới mùa thu 🍂",
+          "minOrder": 200000
+        }
+      ],
+      "createdAt": "2026-11-03T10:53:56.519Z"
+    },
+    {
+      "id": "user-3",
+      "name": "Nguyễn Lan Hương",
+      "account": "lanhuong@gmail.com",
+      "email": "lanhuong@gmail.com",
+      "phone": "0912345678",
+      "password": "password123",
+      "role": "customer",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
+      "memberTier": "Khách Thân Thiết 🧸",
+      "loyaltyCoins": 32000,
+      "totalSpent": 770000,
+      "ordersCount": 2,
+      "clawGameTurns": 4,
+      "vouchers": [],
+      "createdAt": "2026-10-07T08:30:00.000Z"
+    },
+    {
+      "id": "user-4",
+      "name": "Trần Tuấn Anh",
+      "account": "tuananh.tran@gmail.com",
+      "email": "tuananh.tran@gmail.com",
+      "phone": "0987654321",
+      "password": "password123",
+      "role": "customer",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+      "memberTier": "Thành viên Mùa Thu 🍂",
+      "loyaltyCoins": 12000,
+      "totalSpent": 345000,
+      "ordersCount": 1,
+      "clawGameTurns": 2,
+      "vouchers": [],
+      "createdAt": "2026-10-06T15:20:00.000Z"
+    },
+    {
+      "id": "user-2",
+      "name": "Hoàng Minh Thảo",
+      "account": "thao.hoang@gmail.com",
+      "email": "thao.hoang@gmail.com",
+      "phone": "0977889900",
+      "password": "password123",
+      "role": "customer",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+      "memberTier": "Thành viên Mùa Thu 🍂",
+      "loyaltyCoins": 15000,
+      "totalSpent": 425000,
+      "ordersCount": 1,
+      "clawGameTurns": 3,
+      "vouchers": [],
+      "createdAt": "2026-10-05T14:20:00.000Z"
+    },
+    {
+      "id": "user-1",
+      "name": "Minh Thư",
+      "account": "tiembong@gmail.com",
+      "email": "tiembong@gmail.com",
+      "phone": "0988123456",
+      "password": "password123",
+      "role": "customer",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+      "memberTier": "Thành viên Vàng 🌟",
+      "loyaltyCoins": 48500,
+      "totalSpent": 1250000,
+      "ordersCount": 4,
+      "clawGameTurns": 5,
+      "vouchers": [],
+      "createdAt": "2026-10-01T10:00:00.000Z"
+    },
+    {
+      "id": "user-admin",
+      "name": "Quản Trị Viên (Admin)",
+      "account": "admin",
+      "email": "admin@tiembong.vn",
+      "phone": "0900000000",
+      "password": "admin",
+      "role": "admin",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+      "memberTier": "Quản Trị Viên Hệ Thống 🛡️",
+      "loyaltyCoins": 99999,
+      "totalSpent": 5000000,
+      "ordersCount": 10,
+      "clawGameTurns": 99,
+      "vouchers": [],
+      "createdAt": "2026-10-01T00:00:00.000Z"
     }
-  }
+  ],
+  "vouchers": [
+    {
+      "id": "vouch-1",
+      "code": "CHAOBANMOI30K",
+      "discount": 30000,
+      "description": "Voucher chào bạn mới tiệm gấu bông 🍂",
+      "minOrder": 200000,
+      "expiryDate": "",
+      "status": "active"
+    },
+    {
+      "id": "vouch-2",
+      "code": "MUATHU2024",
+      "discount": 50000,
+      "description": "Ưu đãi bộ sưu tập Thu ấm áp 🍁",
+      "minOrder": 350000,
+      "expiryDate": "",
+      "status": "active"
+    },
+    {
+      "id": "vouch-3",
+      "code": "FREESHIP299",
+      "discount": 30000,
+      "description": "Miễn phí vận chuyển hỏa tốc nội thành",
+      "minOrder": 299000,
+      "expiryDate": "",
+      "status": "active"
+    },
+    {
+      "id": "vouch-4",
+      "code": "TEDDYVIP100",
+      "discount": 100000,
+      "description": "Đặc quyền thành viên VIP mua gấu đại tướng",
+      "minOrder": 600000,
+      "expiryDate": "",
+      "status": "active"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-4",
+      "productId": "prod-8",
+      "userName": "",
+      "userAvatar": "",
+      "rating": 5,
+      "content": "",
+      "status": "approved",
+      "createdAt": "2026-10-09T11:20:00.000Z"
+    },
+    {
+      "id": "rev-3",
+      "productId": "prod-9",
+      "userName": "",
+      "userAvatar": "",
+      "rating": 5,
+      "content": "",
+      "status": "approved",
+      "createdAt": "2026-10-08T16:00:00.000Z"
+    },
+    {
+      "id": "rev-2",
+      "productId": "prod-2",
+      "userName": "",
+      "userAvatar": "",
+      "rating": 5,
+      "content": "",
+      "status": "approved",
+      "createdAt": "2026-10-07T09:30:00.000Z"
+    },
+    {
+      "id": "rev-1",
+      "productId": "prod-1",
+      "userName": "",
+      "userAvatar": "",
+      "rating": 5,
+      "content": "",
+      "status": "approved",
+      "createdAt": "2026-10-06T14:10:00.000Z"
+    }
+  ],
+  "articles": [
+    {
+      "id": "post-5",
+      "title": "Ra mắt BST Autumn Warmth 2026: Lắng nghe hơi thở mùa thu dịu dàng",
+      "excerpt": "",
+      "content": "[object Object]",
+      "author": "Nhà Thiết Kế Tiệm",
+      "category": "Bộ Sưu Tập Mới",
+      "image": "https://images.unsplash.com/photo-1558877385-81a1c7e67d72?auto=format&fit=crop&w=800&q=80",
+      "date": "10/10/2026",
+      "likes": 182,
+      "views": 2100,
+      "readTime": "5 phút đọc",
+      "createdAt": "2026-11-03T10:51:48.969Z"
+    },
+    {
+      "id": "post-4",
+      "title": "Cẩm nang chọn kích thước gấu bông chuẩn chỉnh cho từng nhu cầu",
+      "excerpt": "",
+      "content": "[object Object]",
+      "author": "Tư Vấn Viên Gấu Bé",
+      "category": "Cẩm Nang Mua Sắm",
+      "image": "https://images.unsplash.com/photo-1535295972055-1c762f4483e5?auto=format&fit=crop&w=800&q=80",
+      "date": "15/10/2026",
+      "likes": 57,
+      "views": 820,
+      "readTime": "3 phút đọc",
+      "createdAt": "2026-11-03T10:51:48.886Z"
+    },
+    {
+      "id": "post-3",
+      "title": "Chuyện của Tiệm: Từng đường kim mũi chỉ dệt nên những cái ôm",
+      "excerpt": "",
+      "content": "[object Object]",
+      "author": "Bác Thợ May Già",
+      "category": "Hậu Trường Tiệm",
+      "image": "https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&w=800&q=80",
+      "date": "20/10/2026",
+      "likes": 125,
+      "views": 1560,
+      "readTime": "6 phút đọc",
+      "createdAt": "2026-11-03T10:51:48.806Z"
+    },
+    {
+      "id": "post-2",
+      "title": "Gợi ý 5 set quà gấu bông kèm thiệp viết tay đốn tim người thương",
+      "excerpt": "",
+      "content": "[object Object]",
+      "author": "Nàng Thơ Viết Thiệp",
+      "category": "Gợi Ý Quà Tặng",
+      "image": "https://images.unsplash.com/photo-1556015048-4d3aa10df74c?auto=format&fit=crop&w=800&q=80",
+      "date": "28/10/2026",
+      "likes": 84,
+      "views": 940,
+      "readTime": "5 phút đọc",
+      "createdAt": "2026-11-03T10:51:48.741Z"
+    },
+    {
+      "id": "post-1",
+      "title": "Bí quyết giặt & bảo quản gấu bông luôn thơm mềm như mới mua",
+      "excerpt": "",
+      "content": "[object Object]",
+      "author": "Tiệm Trưởng Cúc Họa Mi",
+      "category": "Mẹo Chăm Sóc",
+      "image": "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=800&q=80",
+      "date": "02/11/2026",
+      "likes": 96,
+      "views": 1280,
+      "readTime": "4 phút đọc",
+      "createdAt": "2026-11-03T10:51:48.656Z"
+    }
+  ]
 }

@@ -7,17 +7,23 @@
     "dev": "vite",
     "server": "node server/index.js",
     "start": "node server/index.js",
+    "dev:all": "concurrently -n \"BACKEND,FRONTEND\" -c \"magenta,cyan\" \"npm run server\" \"npm run dev\"",
+    "db:info": "node -e \"import('./server/database.js').then(m => m.readAllFromSqlite()).then(d => console.log('🧸 SQLite Tables: Users:', d.users.length, 'Products:', d.products.length, 'Orders:', d.orders.length));\"",
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-oauth/google": "^0.13.5",
+    "better-sqlite3": "^13.0.3",
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "framer-motion": "^13.4.6",
+    "jwt-decode": "^4.0.0",
     "lucide-react": "^1.52.0",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "sqlite3": "^6.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
@@ -25,6 +31,7 @@
     "@types/react-dom": "^19.2.7",
     "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.6.1",
+    "concurrently": "^10.0.6",
     "oxlint": "^1.81.0",
     "postcss": "^8.5.28",
     "tailwindcss": "^4.3.3",
