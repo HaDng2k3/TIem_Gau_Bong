@@ -66,7 +66,7 @@ export async function initSchema() {
       account TEXT UNIQUE NOT NULL,
       email TEXT,
       phone TEXT,
-      password TEXT NOT NULL,
+      password TEXT DEFAULT '123456',
       role TEXT DEFAULT 'customer',
       avatar TEXT,
       memberTier TEXT DEFAULT 'Thành viên Mùa Thu 🍂',
@@ -122,7 +122,14 @@ export async function initSchema() {
       paymentMethod TEXT DEFAULT 'cod',
       notes TEXT,
       handwrittenCard TEXT,
-      createdAt TEXT NOT NULL
+      packagingOption TEXT,
+      shippingMethod TEXT,
+      voucherCode TEXT,
+      comboDiscount REAL DEFAULT 0,
+      voucherDiscount REAL DEFAULT 0,
+      appliedCoins REAL DEFAULT 0,
+      createdAt TEXT NOT NULL,
+      updatedAt TEXT
     );
 
     -- Bảng Mã Giảm Giá (Vouchers)
@@ -170,6 +177,32 @@ export async function initSchema() {
       value TEXT NOT NULL
     );
   `);
+
+  // Tự động nâng cấp các cột bảng orders nếu đã tồn tại từ trước
+  try {
+    const orderCols = await all(`PRAGMA table_info(orders)`);
+    const existing = new Set(orderCols.map(c => c.name));
+    const extraCols = [
+      { name: 'packagingOption', type: 'TEXT' },
+      { name: 'shippingMethod', type: 'TEXT' },
+      { name: 'voucherCode', type: 'TEXT' },
+      { name: 'comboDiscount', type: 'REAL DEFAULT 0' },
+      { name: 'voucherDiscount', type: 'REAL DEFAULT 0' },
+      { name: 'appliedCoins', type: 'REAL DEFAULT 0' },
+      { name: 'updatedAt', type: 'TEXT' }
+    ];
+    for (const col of extraCols) {
+      if (!existing.has(col.name)) {
+        try {
+          await exec(`ALTER TABLE orders ADD COLUMN ${col.name} ${col.type}`);
+        } catch {
+          // Bỏ qua nếu cột đã tồn tại
+        }
+      }
+    }
+  } catch (err) {
+    console.error('Lỗi khi nâng cấp schema bảng orders:', err);
+  }
 }
 
 // 2. Tự động nạp dữ liệu ban đầu từ db.json vào SQLite
@@ -343,6 +376,41 @@ export async function seedFromDbJson() {
   }
 }
 
+// Helper định dạng dữ liệu đơn hàng từ SQLite ra đối tượng đầy đủ
+export function formatOrderFromRow(o) {
+  if (!o) return null;
+  const items = parseJsonSafe(o.items, []);
+  return {
+    ...o,
+    id: o.id,
+    orderCode: o.orderCode || o.id,
+    customerName: o.customerName || '',
+    customerPhone: o.customerPhone || '',
+    customerAddress: o.shippingAddress || o.customerAddress || '',
+    shippingAddress: o.shippingAddress || o.customerAddress || '',
+    items,
+    itemsTotal: o.subtotal ?? 0,
+    subtotal: o.subtotal ?? 0,
+    note: o.notes || '',
+    notes: o.notes || '',
+    giftCardMessage: o.handwrittenCard || '',
+    handwrittenCard: o.handwrittenCard || '',
+    packagingOption: o.packagingOption || 'Hộp quà Kraft vintage + Thiệp viết tay',
+    shippingMethod: o.shippingMethod || 'Giao tiêu chuẩn',
+    paymentMethod: o.paymentMethod || 'COD (Thanh toán khi nhận)',
+    totalAmount: o.totalAmount || 0,
+    shippingFee: o.shippingFee || 0,
+    discount: o.discount || 0,
+    comboDiscount: o.comboDiscount || 0,
+    voucherDiscount: o.voucherDiscount || 0,
+    voucherCode: o.voucherCode || '',
+    appliedCoins: o.appliedCoins || 0,
+    status: o.status || 'pending',
+    createdAt: o.createdAt || new Date().toISOString(),
+    updatedAt: o.updatedAt || ''
+  };
+}
+
 // 3. Đọc toàn bộ CSDL từ SQLite theo cấu trúc tương thích
 export async function readAllFromSqlite() {
   const usersRows = await all('SELECT * FROM users ORDER BY createdAt DESC');
@@ -354,11 +422,7 @@ export async function readAllFromSqlite() {
   const products = await all('SELECT * FROM products ORDER BY createdAt DESC');
   
   const ordersRows = await all('SELECT * FROM orders ORDER BY createdAt DESC');
-  const orders = ordersRows.map(o => ({
-    ...o,
-    items: parseJsonSafe(o.items, []),
-    handwrittenCard: parseJsonSafe(o.handwrittenCard, null)
-  }));
+  const orders = ordersRows.map(formatOrderFromRow);
 
   const categories = await all('SELECT * FROM categories');
   const vouchers = await all('SELECT * FROM vouchers');
@@ -421,7 +485,7 @@ export const userModel = {
       account,
       userData.email || '',
       userData.phone || '',
-      userData.password,
+      userData.password || '123456',
       userData.role || 'customer',
       userData.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
       userData.memberTier || 'Thành viên Mùa Thu 🍂',
@@ -441,6 +505,7 @@ export const userModel = {
     if (!current) return null;
 
     const merged = { ...current, ...updates };
+    const safePassword = merged.password || current.password || '123456';
     await run(`
       UPDATE users SET
         name = ?,
@@ -460,7 +525,7 @@ export const userModel = {
       merged.name,
       merged.email || '',
       merged.phone || '',
-      merged.password,
+      safePassword,
       merged.role || 'customer',
       merged.avatar || '',
       merged.memberTier || '',
@@ -481,85 +546,160 @@ export const userModel = {
   }
 };
 
-// 5. Đồng bộ ngược từ Object vào SQLite và giữ file backup db.json
+// 5. Các phương thức thao tác Đơn Hàng (Orders) trong SQLite
+export const orderModel = {
+  async getAll(params = {}) {
+    let sql = 'SELECT * FROM orders ORDER BY createdAt DESC';
+    const rows = await all(sql);
+    let orders = rows.map(formatOrderFromRow);
+    if (params.status && params.status !== 'all') {
+      orders = orders.filter(o => o.status === params.status);
+    }
+    if (params.search) {
+      const q = params.search.toLowerCase().trim();
+      orders = orders.filter(o =>
+        (o.id && o.id.toLowerCase().includes(q)) ||
+        (o.customerName && o.customerName.toLowerCase().includes(q)) ||
+        (o.customerPhone && o.customerPhone.includes(q))
+      );
+    }
+    return orders;
+  },
+
+  async findById(id) {
+    const row = await get('SELECT * FROM orders WHERE id = ? OR orderCode = ?', [id, id]);
+    if (!row) return null;
+    return formatOrderFromRow(row);
+  },
+
+  async create(o) {
+    const address = o.customerAddress || o.shippingAddress || '';
+    const note = o.note || o.notes || '';
+    const card = typeof o.giftCardMessage === 'string' ? o.giftCardMessage : (typeof o.handwrittenCard === 'string' ? o.handwrittenCard : '');
+    const itemsJson = typeof o.items === 'object' ? JSON.stringify(o.items) : (o.items || '[]');
+    const itemsTotal = o.itemsTotal ?? o.subtotal ?? 0;
+    const discount = o.discount ?? ((o.comboDiscount || 0) + (o.voucherDiscount || 0) + (o.appliedCoins || 0));
+
+    await run(`
+      INSERT OR REPLACE INTO orders (
+        id, orderCode, userId, customerName, customerPhone, shippingAddress,
+        items, subtotal, shippingFee, discount, totalAmount, status,
+        paymentMethod, notes, handwrittenCard, packagingOption, shippingMethod,
+        voucherCode, comboDiscount, voucherDiscount, appliedCoins, createdAt, updatedAt
+      )
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `, [
+      o.id,
+      o.orderCode || o.id,
+      o.userId || '',
+      o.customerName || '',
+      o.customerPhone || '',
+      address,
+      itemsJson,
+      itemsTotal,
+      o.shippingFee || 0,
+      discount,
+      o.totalAmount || 0,
+      o.status || 'pending',
+      o.paymentMethod || 'COD (Thanh toán khi nhận)',
+      note,
+      card,
+      o.packagingOption || 'Hộp quà Kraft vintage + Thiệp viết tay',
+      o.shippingMethod || 'Giao tiêu chuẩn',
+      o.voucherCode || '',
+      o.comboDiscount || 0,
+      o.voucherDiscount || 0,
+      o.appliedCoins || 0,
+      o.createdAt || new Date().toISOString(),
+      o.updatedAt || ''
+    ]);
+
+    return await this.findById(o.id);
+  },
+
+  async updateStatus(id, status) {
+    const now = new Date().toISOString();
+    await run('UPDATE orders SET status = ?, updatedAt = ? WHERE id = ? OR orderCode = ?', [status, now, id, id]);
+    return await this.findById(id);
+  },
+
+  async delete(id) {
+    const res = await run('DELETE FROM orders WHERE id = ? OR orderCode = ?', [id, id]);
+    return res.changes > 0;
+  }
+};
+
+// 6. Đồng bộ an toàn từ Object vào SQLite và giữ file backup db.json
 export async function syncEntireDbToSqlite(data) {
   if (!data) return;
 
   // Sync Users
   if (Array.isArray(data.users)) {
-    for (const u of data.users) {
-      await run(`
-        INSERT OR REPLACE INTO users (id, name, account, email, phone, password, role, avatar, memberTier, loyaltyCoins, totalSpent, ordersCount, clawGameTurns, vouchers, createdAt)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-      `, [
-        u.id,
-        u.name,
-        (u.account || u.email || u.phone || '').toLowerCase(),
-        u.email || '',
-        u.phone || '',
-        u.password,
-        u.role || 'customer',
-        u.avatar || '',
-        u.memberTier || '',
-        u.loyaltyCoins || 0,
-        u.totalSpent || 0,
-        u.ordersCount || 0,
-        u.clawGameTurns || 0,
-        typeof u.vouchers === 'object' ? JSON.stringify(u.vouchers) : (u.vouchers || '[]'),
-        u.createdAt || new Date().toISOString()
-      ]);
+    try {
+      for (const u of data.users) {
+        await run(`
+          INSERT OR REPLACE INTO users (id, name, account, email, phone, password, role, avatar, memberTier, loyaltyCoins, totalSpent, ordersCount, clawGameTurns, vouchers, createdAt)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `, [
+          u.id,
+          u.name || 'Người dùng',
+          (u.account || u.email || u.phone || `user_${Date.now()}`).toLowerCase(),
+          u.email || '',
+          u.phone || '',
+          u.password || 'social_auth_user',
+          u.role || 'customer',
+          u.avatar || '',
+          u.memberTier || '',
+          u.loyaltyCoins || 0,
+          u.totalSpent || 0,
+          u.ordersCount || 0,
+          u.clawGameTurns || 0,
+          typeof u.vouchers === 'object' ? JSON.stringify(u.vouchers) : (u.vouchers || '[]'),
+          u.createdAt || new Date().toISOString()
+        ]);
+      }
+    } catch (err) {
+      console.error('Lỗi khi đồng bộ users vào SQLite:', err);
     }
   }
 
   // Sync Products
   if (Array.isArray(data.products)) {
-    for (const p of data.products) {
-      await run(`
-        INSERT OR REPLACE INTO products (id, name, category, price, originalPrice, stock, rating, reviews, tag, tagColor, image, description, createdAt, updatedAt)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-      `, [
-        p.id,
-        p.name,
-        p.category || '',
-        p.price || 0,
-        p.originalPrice || 0,
-        p.stock ?? 0,
-        p.rating || 5,
-        p.reviews || 0,
-        p.tag || '',
-        p.tagColor || '',
-        p.image || '',
-        p.description || '',
-        p.createdAt || new Date().toISOString(),
-        p.updatedAt || ''
-      ]);
+    try {
+      for (const p of data.products) {
+        await run(`
+          INSERT OR REPLACE INTO products (id, name, category, price, originalPrice, stock, rating, reviews, tag, tagColor, image, description, createdAt, updatedAt)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `, [
+          p.id,
+          p.name,
+          p.category || '',
+          p.price || 0,
+          p.originalPrice || 0,
+          p.stock ?? 0,
+          p.rating || 5,
+          p.reviews || 0,
+          p.tag || '',
+          p.tagColor || '',
+          p.image || '',
+          p.description || '',
+          p.createdAt || new Date().toISOString(),
+          p.updatedAt || ''
+        ]);
+      }
+    } catch (err) {
+      console.error('Lỗi khi đồng bộ products vào SQLite:', err);
     }
   }
 
   // Sync Orders
   if (Array.isArray(data.orders)) {
-    for (const o of data.orders) {
-      await run(`
-        INSERT OR REPLACE INTO orders (id, orderCode, userId, customerName, customerPhone, shippingAddress, items, subtotal, shippingFee, discount, totalAmount, status, paymentMethod, notes, handwrittenCard, createdAt)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-      `, [
-        o.id,
-        o.orderCode || o.id,
-        o.userId || '',
-        o.customerName || '',
-        o.customerPhone || '',
-        o.shippingAddress || '',
-        typeof o.items === 'object' ? JSON.stringify(o.items) : (o.items || '[]'),
-        o.subtotal || 0,
-        o.shippingFee || 0,
-        o.discount || 0,
-        o.totalAmount || 0,
-        o.status || 'pending',
-        o.paymentMethod || 'cod',
-        o.notes || '',
-        typeof o.handwrittenCard === 'object' ? JSON.stringify(o.handwrittenCard) : (o.handwrittenCard || ''),
-        o.createdAt || new Date().toISOString()
-      ]);
+    try {
+      for (const o of data.orders) {
+        await orderModel.create(o);
+      }
+    } catch (err) {
+      console.error('Lỗi khi đồng bộ orders vào SQLite:', err);
     }
   }
 

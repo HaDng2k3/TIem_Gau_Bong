@@ -9,6 +9,8 @@ import {
   readAllFromSqlite, 
   syncEntireDbToSqlite, 
   userModel, 
+  orderModel,
+  run,
   get, 
   all, 
   SQLITE_FILE 
@@ -283,7 +285,7 @@ app.get('/api/orders', (req, res) => {
 });
 
 // Create order (from storefront or admin)
-app.post('/api/orders', (req, res) => {
+app.post('/api/orders', async (req, res) => {
   const db = readDb();
   const {
     customerName,
@@ -317,7 +319,6 @@ app.post('/api/orders', (req, res) => {
   const itemsTotal = items.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
 
   // Áp dụng giảm giá (combo, voucher, xu) giống hệt lúc khách xem ở bước thanh toán.
-  // Kẹp giá trị để tránh số âm hoặc giảm vượt quá tiền hàng.
   const safeNum = (v) => Math.max(0, Number(v) || 0);
   const combo = Math.min(safeNum(comboDiscount), Math.round(itemsTotal * 0.1));
   const voucher = safeNum(voucherDiscount);
@@ -331,43 +332,62 @@ app.post('/api/orders', (req, res) => {
   do {
     orderId = `ORD-${Math.floor(10000 + Math.random() * 90000)}`;
   } while (existingIds.has(orderId));
+
   const newOrder = {
     id: orderId,
+    orderCode: orderId,
     customerName: customerName.trim(),
     customerPhone: customerPhone.trim(),
     customerAddress: customerAddress.trim(),
+    shippingAddress: customerAddress.trim(),
     items,
     giftCardMessage: giftCardMessage.trim(),
+    handwrittenCard: giftCardMessage.trim(),
     packagingOption,
     shippingMethod,
     paymentMethod,
     itemsTotal,
+    subtotal: itemsTotal,
     comboDiscount: combo,
     voucherDiscount: voucher,
     voucherCode,
     appliedCoins: coins,
+    discount: totalDiscount,
     totalAmount,
     shippingFee: safeNum(shippingFee),
     status: 'pending',
     note: note.trim(),
+    notes: note.trim(),
     createdAt: new Date().toISOString()
   };
 
-  // Auto reduce stock
-  items.forEach(it => {
+  // Trừ tồn kho cả trong memory lẫn SQLite
+  for (const it of items) {
     const prod = (db.products || []).find(p => p.id === it.productId);
     if (prod && prod.stock >= (it.quantity || 1)) {
       prod.stock -= (it.quantity || 1);
     }
-  });
+    if (it.productId) {
+      await run('UPDATE products SET stock = MAX(0, stock - ?) WHERE id = ?', [it.quantity || 1, it.productId]).catch(() => {});
+    }
+  }
 
+  // 1. Lưu trực tiếp đơn hàng vào SQLite ngay lập tức
+  try {
+    await orderModel.create(newOrder);
+  } catch (err) {
+    console.error('Lỗi khi lưu đơn hàng vào SQLite:', err);
+  }
+
+  // 2. Cập nhật cache RAM & sao lưu db.json
   db.orders = [newOrder, ...(db.orders || [])];
   writeDb(db);
+
   res.status(201).json(newOrder);
 });
 
 // Update order status
-app.put('/api/orders/:id/status', (req, res) => {
+app.put('/api/orders/:id/status', async (req, res) => {
   const db = readDb();
   const { status } = req.body;
   const validStatuses = ['pending', 'processing', 'shipping', 'delivered', 'cancelled'];
@@ -381,18 +401,33 @@ app.put('/api/orders/:id/status', (req, res) => {
 
   order.status = status;
   order.updatedAt = new Date().toISOString();
+
+  // Đồng bộ trạng thái đơn hàng vào SQLite
+  try {
+    await orderModel.updateStatus(req.params.id, status);
+  } catch (err) {
+    console.error('Lỗi cập nhật trạng thái đơn vào SQLite:', err);
+  }
+
   writeDb(db);
   res.json(order);
 });
 
 // Delete order
-app.delete('/api/orders/:id', (req, res) => {
+app.delete('/api/orders/:id', async (req, res) => {
   const db = readDb();
   const initialLength = db.orders.length;
   db.orders = (db.orders || []).filter(o => o.id !== req.params.id);
 
   if (db.orders.length === initialLength) {
     return res.status(404).json({ error: 'Không tìm thấy đơn hàng cần xóa' });
+  }
+
+  // Xóa đơn hàng trong SQLite
+  try {
+    await orderModel.delete(req.params.id);
+  } catch (err) {
+    console.error('Lỗi xóa đơn hàng trong SQLite:', err);
   }
 
   writeDb(db);
@@ -487,6 +522,7 @@ app.put('/api/users/:id', (req, res) => {
   const updated = {
     ...existing,
     ...req.body,
+    password: req.body.password || existing.password || '123456',
     id: existing.id,
     updatedAt: new Date().toISOString()
   };

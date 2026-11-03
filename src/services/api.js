@@ -723,7 +723,7 @@ export async function createOrder(orderData) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(orderData),
-      signal: AbortSignal.timeout(2500)
+      signal: AbortSignal.timeout(8000)
     });
   } catch {
     // Server offline -> fallback localStorage bên dưới
@@ -765,7 +765,7 @@ export async function updateOrderStatus(orderId, status) {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status }),
-      signal: AbortSignal.timeout(2500)
+      signal: AbortSignal.timeout(8000)
     });
     if (res.ok) return await res.json();
   } catch {
@@ -787,7 +787,7 @@ export async function deleteOrder(orderId) {
   try {
     const res = await fetch(`${API_BASE_URL}/orders/${orderId}`, {
       method: 'DELETE',
-      signal: AbortSignal.timeout(2500)
+      signal: AbortSignal.timeout(8000)
     });
     if (res.ok) return await res.json();
   } catch {

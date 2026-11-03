@@ -1,6 +1,21 @@
 {
   "products": [
     {
+      "id": "prod-1793716512023",
+      "name": "gấu ne",
+      "category": "Gấu Teddy",
+      "price": 12500,
+      "originalPrice": 320000,
+      "stock": 15,
+      "rating": 5,
+      "reviews": 0,
+      "tag": "Best Seller",
+      "tagColor": "bg-amber-500",
+      "image": "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80",
+      "description": "Bé gấu xinh xắn lông mềm mại, đường may tỉ mỉ, ruột bông gòn tinh khiết 100%.",
+      "createdAt": "2026-11-03T14:35:12.023Z"
+    },
+    {
       "id": "prod-9",
       "name": "Gấu Ôm Khổng Lồ 1m6 Nâu Caramel",
       "category": "Gấu Ôm Khổng Lồ",
@@ -118,7 +133,7 @@
       "category": "Gấu Teddy",
       "price": 395000,
       "originalPrice": 450000,
-      "stock": 23,
+      "stock": 22,
       "rating": 5,
       "reviews": 142,
       "tag": "Best Seller",
@@ -147,6 +162,42 @@
   ],
   "orders": [
     {
+      "id": "ORD-68425",
+      "orderCode": "ORD-68425",
+      "userId": "",
+      "customerName": "Hoàng Thu Ngân",
+      "customerPhone": "0978123456",
+      "shippingAddress": "Số 88 Phố Huế, Hai Bà Trưng, Hà Nội",
+      "items": [
+        {
+          "productId": "prod-1",
+          "productName": "Teddy Mùa Thu Quàng Khăn Len",
+          "quantity": 2,
+          "price": 395000
+        }
+      ],
+      "subtotal": 790000,
+      "shippingFee": 30000,
+      "discount": 30000,
+      "totalAmount": 790000,
+      "status": "shipping",
+      "paymentMethod": "Chuyển khoản QR",
+      "notes": "Giao trước 11h sáng giúp mình nhé",
+      "handwrittenCard": "Gửi tặng bạn thân ngày sinh nhật ấm áp!",
+      "createdAt": "2026-11-03T14:17:55.337Z",
+      "packagingOption": "Hộp quà Kraft vintage + Thiệp viết tay",
+      "shippingMethod": "Hỏa tốc 2H (Nội thành)",
+      "voucherCode": "CHAOBANMOI30K",
+      "comboDiscount": 0,
+      "voucherDiscount": 30000,
+      "appliedCoins": 0,
+      "updatedAt": "2026-11-03T14:18:10.792Z",
+      "customerAddress": "Số 88 Phố Huế, Hai Bà Trưng, Hà Nội",
+      "itemsTotal": 790000,
+      "note": "Giao trước 11h sáng giúp mình nhé",
+      "giftCardMessage": "Gửi tặng bạn thân ngày sinh nhật ấm áp!"
+    },
+    {
       "id": "ORD-1001",
       "orderCode": "ORD-1001",
       "userId": "",
@@ -169,8 +220,19 @@
       "status": "pending",
       "paymentMethod": "Chuyển khoản QR",
       "notes": "",
-      "handwrittenCard": null,
-      "createdAt": "2026-10-07T08:30:00.000Z"
+      "handwrittenCard": "null",
+      "createdAt": "2026-10-07T08:30:00.000Z",
+      "packagingOption": "Hộp quà Kraft vintage + Thiệp viết tay",
+      "shippingMethod": "Giao tiêu chuẩn",
+      "voucherCode": "",
+      "comboDiscount": 0,
+      "voucherDiscount": 0,
+      "appliedCoins": 0,
+      "updatedAt": "",
+      "customerAddress": "",
+      "itemsTotal": 0,
+      "note": "",
+      "giftCardMessage": "null"
     },
     {
       "id": "ORD-1002",
@@ -195,8 +257,19 @@
       "status": "processing",
       "paymentMethod": "COD (Thanh toán khi nhận)",
       "notes": "",
-      "handwrittenCard": null,
-      "createdAt": "2026-10-06T15:20:00.000Z"
+      "handwrittenCard": "null",
+      "createdAt": "2026-10-06T15:20:00.000Z",
+      "packagingOption": "Hộp quà Kraft vintage + Thiệp viết tay",
+      "shippingMethod": "Giao tiêu chuẩn",
+      "voucherCode": "",
+      "comboDiscount": 0,
+      "voucherDiscount": 0,
+      "appliedCoins": 0,
+      "updatedAt": "",
+      "customerAddress": "",
+      "itemsTotal": 0,
+      "note": "",
+      "giftCardMessage": "null"
     },
     {
       "id": "ORD-1003",
@@ -228,8 +301,19 @@
       "status": "shipping",
       "paymentMethod": "Chuyển khoản QR",
       "notes": "",
-      "handwrittenCard": null,
-      "createdAt": "2026-10-05T11:45:00.000Z"
+      "handwrittenCard": "null",
+      "createdAt": "2026-10-05T11:45:00.000Z",
+      "packagingOption": "Hộp quà Kraft vintage + Thiệp viết tay",
+      "shippingMethod": "Giao tiêu chuẩn",
+      "voucherCode": "",
+      "comboDiscount": 0,
+      "voucherDiscount": 0,
+      "appliedCoins": 0,
+      "updatedAt": "",
+      "customerAddress": "",
+      "itemsTotal": 0,
+      "note": "",
+      "giftCardMessage": "null"
     },
     {
       "id": "ORD-1004",
@@ -254,8 +338,19 @@
       "status": "delivered",
       "paymentMethod": "Chuyển khoản QR",
       "notes": "",
-      "handwrittenCard": null,
-      "createdAt": "2026-10-04T09:10:00.000Z"
+      "handwrittenCard": "null",
+      "createdAt": "2026-10-04T09:10:00.000Z",
+      "packagingOption": "Hộp quà Kraft vintage + Thiệp viết tay",
+      "shippingMethod": "Giao tiêu chuẩn",
+      "voucherCode": "",
+      "comboDiscount": 0,
+      "voucherDiscount": 0,
+      "appliedCoins": 0,
+      "updatedAt": "",
+      "customerAddress": "",
+      "itemsTotal": 0,
+      "note": "",
+      "giftCardMessage": "null"
     }
   ],
   "categories": [
@@ -314,10 +409,7 @@
       "bankName": "Vietcombank",
       "accountNumber": "9988776655",
       "accountName": "TIEM GAU BONG HD"
-    },
-    "heroBanner": "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=1200&q=80",
-    "logo": "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=300&q=80",
-    "authBanner": ""
+    }
   },
   "users": [
     {
